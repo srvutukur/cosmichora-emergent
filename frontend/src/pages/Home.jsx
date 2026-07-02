@@ -3,18 +3,16 @@ import { Link } from "react-router-dom";
 import api from "../lib/api";
 import { useI18n } from "../lib/i18n";
 import ZodiacWheel from "../components/ZodiacWheel";
-import { ArrowRight, Sparkles, Star, Sun, Moon as MoonIcon } from "lucide-react";
+import { ArrowRight, Sparkles, Sun, Moon as MoonIcon } from "lucide-react";
 
 const HERO_IMG = "/generated/hero-celestial.png";
 
 export default function Home() {
   const { t, tReport } = useI18n();
   const [reports, setReports] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
 
   useEffect(() => {
     api.get("/report-types").then((r) => setReports(r.data.slice(0, 6))).catch(() => {});
-    api.get("/testimonials").then((r) => setTestimonials(r.data)).catch(() => {});
   }, []);
 
   return (
@@ -78,15 +76,6 @@ export default function Home() {
               <Link to="/services" data-testid="hero-cta-services" className="btn-secondary">
                 {t("hero_cta_how")}
               </Link>
-            </div>
-            <div className="mt-14 flex items-center gap-6 text-sm flex-wrap" style={{ color: "var(--charcoal)" }}>
-              <div className="flex items-center gap-2">
-                <Star size={14} fill="#D4AF37" stroke="#D4AF37" /> {t("hero_stat_rating")}
-              </div>
-              <span style={{ color: "var(--brass)" }}>◆</span>
-              <div>{t("hero_stat_delivered")}</div>
-              <span className="hidden md:inline" style={{ color: "var(--brass)" }}>◆</span>
-              <div className="hidden md:block">{t("hero_stat_types")}</div>
             </div>
           </div>
 
@@ -176,39 +165,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────── TESTIMONIALS ───────── */}
-      {testimonials.length > 0 && (
-        <section className="relative py-24 md:py-32 overflow-hidden">
-          <div className="sri-yantra-bg" style={{ opacity: 0.25 }} />
-          <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-            <div className="max-w-2xl mb-14 text-center mx-auto">
-              <div className="eyebrow mb-4">{t("tst_eyebrow")}</div>
-              <h2 className="font-display font-normal text-4xl md:text-5xl tracking-tight" style={{ color: "var(--obsidian)" }}>
-                {t("tst_title")}
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.slice(0, 3).map((tt) => (
-                <figure key={tt.id} className="card-editorial">
-                  <div className="flex mb-4">
-                    {Array.from({ length: tt.rating || 5 }).map((_, i) => (
-                      <Star key={i} size={14} fill="#D4AF37" stroke="#D4AF37" />
-                    ))}
-                  </div>
-                  <blockquote className="font-display italic text-xl leading-snug mb-6" style={{ color: "var(--obsidian)" }}>
-                    “{tt.quote}”
-                  </blockquote>
-                  <figcaption>
-                    <div className="text-sm font-medium" style={{ color: "var(--gold-warm, #E6C87A)" }}>{tt.name}</div>
-                    <div className="text-xs" style={{ color: "var(--charcoal)" }}>{tt.role}</div>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ───────── CTA ───────── */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0" style={{
@@ -230,9 +186,6 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link to="/reports" data-testid="footer-cta-reports" className="btn-primary">
               {t("cta_choose")} <ArrowRight size={16} />
-            </Link>
-            <Link to="/appointment" data-testid="footer-cta-appointment" className="btn-secondary">
-              {t("cta_speak")}
             </Link>
           </div>
         </div>

@@ -34,7 +34,7 @@ const DICT = {
     hero_line1: "The cosmos,",
     hero_line2: "translated",
     hero_line3: "for you",
-    hero_body: "AI-crafted Vedic astrology reports, prepared with the care of a seasoned scholar and delivered to your inbox within minutes. No queues. No noise. Just the sky, whispering.",
+    hero_body: "Vedic astrology reports, prepared with the care of a seasoned scholar and delivered to your inbox within minutes. No queues. No noise. Just the sky, whispering.",
     hero_cta_reports: "Explore Reports",
     hero_cta_how: "How it works",
     hero_stat_rating: "4.9 rating",
@@ -70,7 +70,7 @@ const DICT = {
 
     // Reports listing
     reports_title: "Every kind of reading, one library.",
-    reports_sub: "Choose from fifteen traditions of Vedic astrology, each composed with rigour and delivered in minutes.",
+    reports_sub: "Choose from twelve traditions of Vedic astrology, each composed with rigour and delivered in minutes.",
     reports_search: "Search reports…",
     free: "Free",
 
@@ -134,7 +134,7 @@ const DICT = {
 
     services_eyebrow: "Services",
     services_title: "Everything the sky has to say.",
-    svc_1_t: "AI Reports", svc_1_d: "Instant, PDF-delivered Vedic reports across 15 traditions.",
+    svc_1_t: "Vedic Reports", svc_1_d: "Instant, PDF-delivered Vedic astrology reports across 12 traditions.",
     svc_2_t: "Live Consultations", svc_2_d: "Book a private session with a senior astrologer (coming soon).",
     svc_3_t: "Muhurta Selection", svc_3_d: "Choose auspicious timing for weddings, launches and journeys.",
     svc_4_t: "Custom Analysis", svc_4_d: "Ask a specific life question and receive a bespoke reading.",
@@ -230,7 +230,7 @@ const DICT = {
     hero_line1: "ब्रह्मांड,",
     hero_line2: "अनुवादित",
     hero_line3: "आपके लिए",
-    hero_body: "AI द्वारा तैयार वैदिक ज्योतिष रिपोर्ट, अनुभवी विद्वान की देखभाल के साथ, कुछ ही मिनटों में आपके इनबॉक्स तक। कोई प्रतीक्षा नहीं। बस आकाश, फुसफुसाता हुआ।",
+    hero_body: "वैदिक ज्योतिष रिपोर्ट, अनुभवी विद्वान की देखभाल के साथ, कुछ ही मिनटों में आपके इनबॉक्स तक। कोई प्रतीक्षा नहीं। बस आकाश, फुसफुसाता हुआ।",
     hero_cta_reports: "रिपोर्ट्स देखें",
     hero_cta_how: "यह कैसे काम करता है",
     hero_stat_rating: "4.9 रेटिंग",
@@ -261,7 +261,7 @@ const DICT = {
     cta_speak: "ज्योतिषी से बात करें",
 
     reports_title: "हर प्रकार का पठन, एक पुस्तकालय।",
-    reports_sub: "वैदिक ज्योतिष की पंद्रह परंपराओं में से चुनें, प्रत्येक कठोरता से रचित और मिनटों में वितरित।",
+    reports_sub: "वैदिक ज्योतिष की बारह परंपराओं में से चुनें, प्रत्येक कठोरता से रचित और मिनटों में वितरित।",
     reports_search: "रिपोर्ट्स खोजें…",
     free: "निःशुल्क",
 
@@ -321,7 +321,7 @@ const DICT = {
 
     services_eyebrow: "सेवाएँ",
     services_title: "आकाश जो कुछ कहना चाहता है।",
-    svc_1_t: "AI रिपोर्ट्स", svc_1_d: "15 परंपराओं में तत्काल, PDF वितरित वैदिक रिपोर्ट्स।",
+    svc_1_t: "वैदिक रिपोर्ट्स", svc_1_d: "12 परंपराओं में तत्काल, PDF वितरित वैदिक ज्योतिष रिपोर्ट्स।",
     svc_2_t: "लाइव परामर्श", svc_2_d: "वरिष्ठ ज्योतिषी के साथ निजी सत्र बुक करें (जल्द आ रहा है)।",
     svc_3_t: "मुहूर्त चयन", svc_3_d: "विवाह, प्रारंभ और यात्राओं के लिए शुभ समय चुनें।",
     svc_4_t: "कस्टम विश्लेषण", svc_4_d: "एक विशेष जीवन प्रश्न पूछें और अनुकूलित रीडिंग प्राप्त करें।",
@@ -415,7 +415,7 @@ const DICT = {
     hero_line1: "విశ్వం,",
     hero_line2: "అనువదించబడింది",
     hero_line3: "మీ కోసం",
-    hero_body: "AI-రూపొందించిన వైదిక జ్యోతిష నివేదికలు, అనుభవజ్ఞుడైన పండితుని శ్రద్ధతో సిద్ధం చేసి, కొన్ని నిమిషాల్లో మీ ఇన్‌బాక్స్‌కు అందించబడతాయి. ఎటువంటి క్యూలు లేవు. కేవలం ఆకాశం, గుసగుసలాడుతోంది.",
+    hero_body: "వైదిక జ్యోతిష నివేదికలు, అనుభవజ్ఞుడైన పండితుని శ్రద్ధతో సిద్ధం చేసి, కొన్ని నిమిషాల్లో మీ ఇన్‌బాక్స్‌కు అందించబడతాయి. ఎటువంటి క్యూలు లేవు. కేవలం ఆకాశం, గుసగుసలాడుతోంది.",
     hero_cta_reports: "నివేదికలను అన్వేషించండి",
     hero_cta_how: "ఇది ఎలా పనిచేస్తుంది",
     hero_stat_rating: "4.9 రేటింగ్",
@@ -446,7 +446,7 @@ const DICT = {
     cta_speak: "జ్యోతిష్కునితో మాట్లాడండి",
 
     reports_title: "ప్రతి రకమైన పఠనం, ఒకే గ్రంథాలయం.",
-    reports_sub: "వైదిక జ్యోతిష్యం యొక్క పదిహేను సంప్రదాయాల నుండి ఎంచుకోండి, ప్రతి ఒక్కటి కఠినంగా రచించబడి నిమిషాల్లో అందించబడతాయి.",
+    reports_sub: "వైదిక జ్యోతిష్యం యొక్క పన్నెండు సంప్రదాయాల నుండి ఎంచుకోండి, ప్రతి ఒక్కటి కఠినంగా రచించబడి నిమిషాల్లో అందించబడతాయి.",
     reports_search: "నివేదికలను శోధించండి…",
     free: "ఉచితం",
 
@@ -506,7 +506,7 @@ const DICT = {
 
     services_eyebrow: "సేవలు",
     services_title: "ఆకాశం చెప్పాలనుకున్నదంతా.",
-    svc_1_t: "AI నివేదికలు", svc_1_d: "15 సంప్రదాయాల్లో తక్షణమే, PDF-అందించబడిన వైదిక నివేదికలు.",
+    svc_1_t: "వైదిక నివేదికలు", svc_1_d: "12 సంప్రదాయాల్లో తక్షణమే, PDF-అందించబడిన వైదిక జ్యోతిష నివేదికలు.",
     svc_2_t: "లైవ్ కన్సల్టేషన్లు", svc_2_d: "వరిష్ఠ జ్యోతిష్కునితో ప్రైవేట్ సెషన్ బుక్ చేయండి (త్వరలో వస్తుంది).",
     svc_3_t: "ముహూర్త ఎంపిక", svc_3_d: "వివాహాలు, ప్రారంభాలు మరియు ప్రయాణాలకు శుభ సమయాన్ని ఎంచుకోండి.",
     svc_4_t: "కస్టమ్ విశ్లేషణ", svc_4_d: "నిర్దిష్ట జీవిత ప్రశ్న అడగండి మరియు ప్రత్యేకమైన రీడింగ్ పొందండి.",

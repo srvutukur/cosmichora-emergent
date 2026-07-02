@@ -8,7 +8,7 @@ export default function Services() {
   const services = [
     { icon: FileText, k: 1, link: "/reports" },
     { icon: MessageCircle, k: 2, link: "/appointment" },
-    { icon: Calendar, k: 3, link: "/reports/muhurta" },
+    { icon: Calendar, k: 3, link: "/reports" },
     { icon: Sparkles, k: 4, link: "/reports/custom-report" },
   ];
 

@@ -50,9 +50,6 @@ export default function Layout() {
   const NAV = [
     { to: "/", label: t("nav_home") },
     { to: "/reports", label: t("nav_reports") },
-    { to: "/services", label: t("nav_services") },
-    { to: "/pricing", label: t("nav_pricing") },
-    { to: "/blog", label: t("nav_journal") },
     { to: "/about", label: t("nav_about") },
     { to: "/contact", label: t("nav_contact") },
   ];
@@ -94,7 +91,7 @@ export default function Layout() {
 
           <div className="hidden lg:flex items-center gap-4">
             <LangSwitch langs={langs} lang={lang} setLang={setLang} open={langOpen} setOpen={setLangOpen} />
-            {user ? (
+            {user && (
               <>
                 <Link to={user.role === "admin" ? "/admin" : "/dashboard"} data-testid="nav-dashboard" className="btn-secondary">
                   {user.role === "admin" ? t("nav_admin") : t("nav_dashboard")}
@@ -102,11 +99,6 @@ export default function Layout() {
                 <button data-testid="nav-logout" onClick={async () => { await logout(); nav("/"); }} className="btn-primary">
                   {t("nav_signout")}
                 </button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" data-testid="nav-login" className="btn-secondary">{t("nav_signin")}</Link>
-                <Link to="/register" data-testid="nav-register" className="btn-primary">{t("nav_begin")}</Link>
               </>
             )}
           </div>
@@ -126,7 +118,7 @@ export default function Layout() {
                 {n.label}
               </Link>
             ))}
-            {user ? (
+            {user && (
               <>
                 <Link to={user.role === "admin" ? "/admin" : "/dashboard"} onClick={() => setOpen(false)} className="btn-secondary w-full justify-center">
                   {user.role === "admin" ? t("nav_admin") : t("nav_dashboard")}
@@ -135,11 +127,6 @@ export default function Layout() {
                   {t("nav_signout")}
                 </button>
               </>
-            ) : (
-              <div className="flex gap-2">
-                <Link to="/login" onClick={() => setOpen(false)} className="btn-secondary flex-1 justify-center">{t("nav_signin")}</Link>
-                <Link to="/register" onClick={() => setOpen(false)} className="btn-primary flex-1 justify-center">{t("nav_begin")}</Link>
-              </div>
             )}
           </div>
         )}
