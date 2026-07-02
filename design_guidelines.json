@@ -1,0 +1,131 @@
+{
+  "theme_and_archetype": {
+    "theme": "LIGHT",
+    "archetype": "5 (Luxury) mixed with 1 (Organic & Earthy)",
+    "description": "A sophisticated, editorial-grade celestial aesthetic ('Vogue-meets-Cosmos'). We are avoiding all cliché deep-blue/purple neon cosmic gradients. The design relies heavily on warm neutrals, deep contrasts, generous whitespace, and elegant serif typography to convey ancient wisdom with modern luxury."
+  },
+  "color_palette": {
+    "background": {
+      "main": "#F9F8F3",
+      "description": "Bone White / Cloud Dancer. The primary background for all marketing pages and dashboard main areas."
+    },
+    "surface": {
+      "main": "#F0EFED",
+      "glass": "rgba(240, 239, 237, 0.7)",
+      "description": "Soft Warm Beige. Used for cards, sidebars, and interactive surfaces. Glass variant is for sticky headers with backdrop-blur-xl."
+    },
+    "text": {
+      "primary": "#1F1D1A",
+      "secondary": "#4C4643",
+      "description": "Obsidian / Soft Charcoal. Pure black is avoided. These deep hues provide high contrast for legibility while maintaining a soft, printed-ink feel."
+    },
+    "brand": {
+      "primary": "#3A302A",
+      "accent": "#B89764",
+      "muted": "#A5A78F",
+      "description": "Espresso Brown (Primary CTA, major text), Antique Brass (subtle borders, icons, highlights), Sage Green (success states, subtle tags)."
+    }
+  },
+  "typography": {
+    "headings": {
+      "font_family": "'Cormorant Garamond', serif",
+      "weights": ["300", "400", "600"],
+      "styling": "tracking-tight for large headings (H1, H2) to create an editorial, high-fashion look. Never use Inter or Space Grotesk."
+    },
+    "body": {
+      "font_family": "'Manrope', sans-serif",
+      "weights": ["300", "400", "500"],
+      "styling": "Clean, geometric contrast to the ornate serif. Used for paragraphs, data tables, and forms."
+    },
+    "accents": {
+      "labels": "uppercase, tracking-[0.2em], text-xs, font-medium (e.g., for 'ASTROLOGY REPORT' overlines or form labels)."
+    },
+    "scale": {
+      "h1": "text-5xl md:text-6xl font-light tracking-tighter text-[#1F1D1A]",
+      "h2": "text-4xl md:text-5xl font-light tracking-tight text-[#1F1D1A]",
+      "h3": "text-2xl md:text-3xl font-normal text-[#3A302A]",
+      "body": "text-base leading-relaxed text-[#4C4643]",
+      "small": "text-sm text-[#4C4643]"
+    }
+  },
+  "spacing_and_layout": {
+    "global_spacing": "Generous Spacing Philosophy. Sections should have py-24 or py-32 to feel breathable and luxurious.",
+    "container": "Max width 7xl with px-6 md:px-12.",
+    "grids": {
+      "marketing": "Asymmetrical editorial grids. Use col-span variations to break up monotony. Images should slightly overlap text containers.",
+      "reports": "Bento-style or strict 3-column masonry grid. Substantial padding inside cards (p-8).",
+      "admin": "Control Room Grid. Tight spacing (gap-6) but utilizing the soft beige background to reduce eye strain."
+    },
+    "borders": "Avoid heavy drop shadows. Use 1px solid borders using Antique Brass (#B89764) at 20% opacity or Espresso Brown at 10% opacity."
+  },
+  "component_styling": {
+    "buttons": {
+      "primary": "bg-[#3A302A] text-[#F9F8F3] hover:bg-[#1F1D1A] rounded-none px-8 py-4 transition-colors duration-300",
+      "secondary": "bg-transparent border border-[#3A302A]/20 text-[#3A302A] hover:bg-[#F0EFED] rounded-none px-8 py-4 transition-colors duration-300",
+      "accent": "bg-[#B89764] text-white hover:bg-[#A38555] rounded-none px-8 py-4"
+    },
+    "cards": {
+      "reports": "bg-[#F0EFED] border border-[#B89764]/20 p-8 rounded-sm hover:shadow-[0_8px_32px_rgba(58,48,42,0.05)] transition-all group",
+      "admin_widgets": "bg-white border border-[#3A302A]/10 p-6 rounded-sm"
+    },
+    "forms": {
+      "inputs": "bg-transparent border-b border-[#3A302A]/20 rounded-none px-0 py-3 focus:outline-none focus:border-[#3A302A] focus:ring-0 text-[#1F1D1A] placeholder-[#4C4643]/50",
+      "labels": "text-xs uppercase tracking-widest text-[#4C4643] mb-2 block"
+    },
+    "navigation": {
+      "header": "sticky top-0 z-50 bg-[#F9F8F3]/80 backdrop-blur-xl border-b border-[#3A302A]/10",
+      "admin_sidebar": "w-64 bg-[#F0EFED] border-r border-[#3A302A]/10 min-h-screen p-6"
+    }
+  },
+  "animations": {
+    "entrance": "Fade up with Framer Motion (y: 20, opacity: 0 -> y: 0, opacity: 1, duration: 0.8, ease: [0.16, 1, 0.3, 1]). Soft, elegant, unhurried.",
+    "hover": "Images inside report cards should have a very slow, slight scale up (scale-105 duration-700) on group hover.",
+    "parallax": "Use subtle scroll parallax on large cosmic background textures."
+  },
+  "image_urls": {
+    "hero_backgrounds": [
+      {
+        "url": "https://images.unsplash.com/photo-1714636608872-048fc9231892?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGJlaWdlJTIwY29zbWljJTIwdGV4dHVyZXxlbnwwfHx8fDE3ODI5Njg2OTN8MA&ixlib=rb-4.1.0&q=85",
+        "category": "hero",
+        "description": "Soft beige wavy abstract texture, perfect for full-screen hero backgrounds with overlaid typography."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1716927111848-56163afc0107?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJlaWdlJTIwY29zbWljJTIwdGV4dHVyZXxlbnwwfHx8fDE3ODI5Njg2OTN8MA&ixlib=rb-4.1.0&q=85",
+        "category": "background",
+        "description": "Organic dunes/texture in beige, suitable for section dividers or footer background."
+      }
+    ],
+    "reports_and_celestial": [
+      {
+        "url": "https://images.unsplash.com/photo-1765205674367-74db717a6d5e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwyfHx2aW50YWdlJTIwYXN0cm9ub215JTIwY2VsZXN0aWFsfGVufDB8fHx8MTc4Mjk2ODY5M3ww&ixlib=rb-4.1.0&q=85",
+        "category": "report_cover",
+        "description": "Nine phases of Venus shown in a grid. Use as thumbnail for major reports (e.g., Complete Horoscope)."
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1777887050296-829020618bf3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwzfHx2aW50YWdlJTIwYXN0cm9ub215JTIwY2VsZXN0aWFsfGVufDB8fHx8MTc4Mjk2ODY5M3ww&ixlib=rb-4.1.0&q=85",
+        "category": "report_cover",
+        "description": "Vintage surveying instrument. Good for Career or Finance prediction report thumbnails."
+      }
+    ],
+    "testimonials_and_portraits": [
+      {
+        "url": "https://images.unsplash.com/photo-1657180881998-c8a03ef22695?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwcG9ydHJhaXQlMjBuZXV0cmFsJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODI5Njg2OTN8MA&ixlib=rb-4.1.0&q=85",
+        "category": "testimonial",
+        "description": "Elegant portrait on neutral background, to be used in the reviews/testimonials section."
+      }
+    ]
+  },
+  "data_testid_instructions": {
+    "requirement": "MANDATORY",
+    "details": "All interactive elements, buttons, form inputs, report cards, and navigation links MUST have a data-testid attribute. Use kebab-case and role-based naming (e.g., data-testid='generate-report-button', data-testid='dob-input')."
+  },
+  "instructions_to_main_agent": {
+    "1": "Inject Cormorant Garamond and Manrope fonts into the project via Google Fonts in index.html or global css.",
+    "2": "Avoid using default Shadcn card wrappers if they enforce heavy shadows or rounded borders. Use raw HTML/Tailwind divs with the specified component styles.",
+    "3": "For the multi-step birth details form, do not use basic bounded inputs. Use the bottom-border only style defined in component_styling.forms.inputs for an editorial feel.",
+    "4": "The Payment flow (Razorpay) is mocked. Build a beautiful UI for the checkout step with loading animations and success states before directing to the user dashboard.",
+    "5": "Admin dashboard needs Shadcn charts (Recharts) configured with the primary (#3A302A) and accent (#B89764) colors instead of default Vercel blues.",
+    "6": "Always verify APCA contrast on text overlaid on images. Use a gradient overlay (bg-gradient-to-b from-[#F9F8F3]/10 to-[#F9F8F3]/90) if needed to protect text readability on light backgrounds.",
+    "7": "Do not create `.tsx` files; generate standard `.js` files using React + Tailwind."
+  }
+}
