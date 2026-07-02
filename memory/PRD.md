@@ -61,6 +61,14 @@ today, real URLs to be plugged in later).
 - Mocked payment + mocked email (logged in db.email_log)
 - Testing: **29/29 backend tests pass**; full Playwright user + admin journeys pass
 
+## Implemented (2026-02-07 — i18n update)
+- Trilingual UI: **English + हिन्दी (Hindi) + తెలుగు (Telugu)**
+- Language switcher in header (`data-testid=lang-switch-btn`), persisted in `localStorage.ch_lang`
+- `html[lang]` attribute updates for CSS-driven Noto Serif Devanagari / Noto Serif Telugu font swap
+- All UI strings (~200 keys) translated across Home, Reports, Birth form, Dashboard, Auth, About, Services, Pricing, Blog, Contact, Appointment, FAQ
+- Report titles + taglines translated per slug via `tReport()`
+- Testing: **100% i18n frontend pass** (iteration 2)
+
 ## What's Deferred (P1/P2 Backlog)
 - P1: Real Razorpay integration (test keys + webhook signature verify)
 - P1: Real email delivery via Resend/SendGrid (needs API key)
