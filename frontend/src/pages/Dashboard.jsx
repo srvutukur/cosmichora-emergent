@@ -47,7 +47,7 @@ export default function Dashboard() {
                 <div className="eyebrow mb-1">{o.status}</div>
                 <div className="font-display text-2xl" style={{ color: "var(--obsidian)" }}>{o.report_title}</div>
                 <div className="text-xs mt-2" style={{ color: "var(--charcoal)" }}>
-                  Order #{o.id.slice(-6)} · ₹{o.amount} · {new Date(o.created_at).toLocaleDateString()}
+                  Order #{o.id.slice(-6)} · ₹{Number(o.amount).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} · {new Date(o.created_at).toLocaleDateString()}
                 </div>
               </div>
               <div className="flex items-center gap-3">

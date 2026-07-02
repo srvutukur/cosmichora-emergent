@@ -15,7 +15,7 @@ export default function AdminHome() {
         <StatCard label="Users" value={a.total_users} />
         <StatCard label="Orders" value={a.total_orders} />
         <StatCard label="Paid Orders" value={a.paid_orders} />
-        <StatCard label="Revenue" value={`₹${a.revenue.toLocaleString("en-IN")}`} />
+        <StatCard label="Revenue" value={`₹${Number(a.revenue).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`} />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
@@ -26,7 +26,10 @@ export default function AdminHome() {
               <CartesianGrid stroke="rgba(58,48,42,0.06)" vertical={false} />
               <XAxis dataKey="date" fontSize={10} stroke="#4C4643" />
               <YAxis fontSize={10} stroke="#4C4643" />
-              <Tooltip contentStyle={{ background: "#F9F8F3", border: "1px solid rgba(58,48,42,0.15)" }} />
+              <Tooltip
+                contentStyle={{ background: "#F9F8F3", border: "1px solid rgba(58,48,42,0.15)" }}
+                formatter={(v) => [`₹${Number(v).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`, "Revenue"]}
+              />
               <Line type="monotone" dataKey="revenue" stroke="#3A302A" strokeWidth={2} dot={{ fill: "#B89764" }} />
             </LineChart>
           </ResponsiveContainer>
