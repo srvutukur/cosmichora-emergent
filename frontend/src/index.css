@@ -48,7 +48,6 @@ html[lang="te"], html[lang="te"] body {
     font-weight: 500;
 }
 
-/* Hide default focus rings; let each component define */
 :focus { outline: none; }
 
 @layer base {
