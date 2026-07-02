@@ -1,56 +1,88 @@
-import { useEffect } from "react";
-import "@/App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { Toaster } from "sonner";
+import { AuthProvider } from "./lib/auth";
+import Layout from "./components/Layout";
+import AdminLayout from "./components/AdminLayout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Pricing from "./pages/Pricing";
+import Reports from "./pages/Reports";
+import BirthForm from "./pages/BirthForm";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
+import Contact from "./pages/Contact";
+import Appointment from "./pages/Appointment";
+import FAQ from "./pages/FAQ";
+import Legal from "./pages/Legal";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+import AdminHome from "./pages/admin/AdminHome";
+import AdminUsers from "./pages/admin/AdminUsers";
+import AdminOrders from "./pages/admin/AdminOrders";
+import AdminReportTypes from "./pages/admin/AdminReportTypes";
+import AdminCoupons from "./pages/admin/AdminCoupons";
+import AdminBlogs from "./pages/admin/AdminBlogs";
+import AdminTestimonials from "./pages/admin/AdminTestimonials";
+import AdminFaqs from "./pages/admin/AdminFaqs";
+import AdminContacts from "./pages/admin/AdminContacts";
+import AdminAppointments from "./pages/admin/AdminAppointments";
+import AdminSettings from "./pages/admin/AdminSettings";
 
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
+import "./App.css";
 
+export default function App() {
   return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
-
-function App() {
-  return (
-    <div className="App">
+    <AuthProvider>
       <BrowserRouter>
+        <Toaster position="top-center" richColors closeButton />
         <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/reports/:slug" element={<BirthForm />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/appointment" element={<Appointment />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/privacy" element={<Legal page="privacy" />} />
+            <Route path="/terms" element={<Legal page="terms" />} />
+            <Route path="/refund" element={<Legal page="refund" />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/dashboard"
+              element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
+            />
+          </Route>
+
+          <Route
+            path="/admin"
+            element={<ProtectedRoute adminOnly><AdminLayout /></ProtectedRoute>}
+          >
+            <Route index element={<AdminHome />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="orders" element={<AdminOrders />} />
+            <Route path="report-types" element={<AdminReportTypes />} />
+            <Route path="coupons" element={<AdminCoupons />} />
+            <Route path="blogs" element={<AdminBlogs />} />
+            <Route path="testimonials" element={<AdminTestimonials />} />
+            <Route path="faqs" element={<AdminFaqs />} />
+            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="appointments" element={<AdminAppointments />} />
+            <Route path="settings" element={<AdminSettings />} />
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </AuthProvider>
   );
 }
-
-export default App;
