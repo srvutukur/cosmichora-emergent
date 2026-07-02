@@ -56,8 +56,8 @@ export default function AdminReportTypes() {
       />
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-6" style={{ background: "rgba(31,29,26,0.5)" }}>
-          <div className="w-full max-w-2xl p-8 max-h-[90vh] overflow-y-auto" style={{ background: "var(--bone)" }}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-6" style={{ background: "rgba(5,3,15,0.72)" }}>
+          <div className="w-full max-w-2xl p-8 max-h-[90vh] overflow-y-auto" style={{ background: "var(--espresso)", border: "1px solid var(--hairline)", borderRadius: 20 }}>
             <div className="flex justify-between items-start mb-6">
               <div className="font-display text-3xl" style={{ color: "var(--obsidian)" }}>{editId ? "Edit" : "New"} report type</div>
               <button onClick={() => setOpen(false)}><X /></button>

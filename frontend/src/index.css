@@ -2,15 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   COSMIC HORA — Mystical Vedic (Modern Spiritual)
+   Palette: Midnight Indigo, Dark Plum, Saffron, Royal Gold
+   ============================================================ */
 :root {
-    /* Editorial neutrals palette (Cosmic Hora) */
-    --bone: #f9f8f3;
-    --beige: #f0efed;
-    --espresso: #3a302a;
-    --obsidian: #1f1d1a;
-    --charcoal: #4c4643;
-    --brass: #b89764;
-    --sage: #a5a78f;
+    /* Semantic legacy names retained so existing components inherit */
+    --bone:      #0E0B24; /* deepest midnight indigo — page bg */
+    --beige:     #1B1235; /* dark plum — elevated surface */
+    --espresso:  #2A1B4A; /* deep amethyst — panels, modals */
+    --obsidian:  #F5E9D3; /* warm parchment ivory — primary text */
+    --charcoal:  #B6A9CC; /* muted lavender — secondary text */
+    --brass:     #D4AF37; /* royal gold — accents, prices, sacred lines */
+    --sage:      #FF9933; /* saffron — sacred, CTA glow */
+
+    /* Additional mystical tokens */
+    --plum-deep:   #14102E;
+    --violet-glow: #4B2B72;
+    --gold-warm:   #E6C87A;
+    --hairline:      rgba(212, 175, 55, 0.22);
+    --hairline-soft: rgba(212, 175, 55, 0.12);
+    --hairline-strong: rgba(212, 175, 55, 0.55);
+    --glass:       rgba(43, 27, 74, 0.42);
+    --glass-strong: rgba(43, 27, 74, 0.68);
 }
 
 html, body {
@@ -19,32 +33,41 @@ html, body {
     font-family: 'Manrope', 'Noto Sans Devanagari', 'Noto Sans Telugu', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Cosmic ambient — three soft radial nebulae baked into the page */
+    background-image:
+        radial-gradient(ellipse 900px 700px at 12% 8%,  rgba(75, 43, 114, 0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 700px 500px at 88% 18%, rgba(212, 175, 55, 0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 1100px 800px at 55% 95%, rgba(255, 153, 51, 0.10) 0%, transparent 55%);
+    background-attachment: fixed;
 }
 
 .font-display {
-    font-family: 'Cormorant Garamond', 'Noto Serif Devanagari', 'Noto Serif Telugu', 'Times New Roman', serif;
+    font-family: 'Playfair Display', 'Cormorant Garamond', 'Noto Serif Devanagari', 'Noto Serif Telugu', serif;
+    letter-spacing: -0.01em;
 }
 
-/* Language-specific overrides — ensures perfect glyph coverage */
-html[lang="hi"] .font-display {
-    font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+.font-hand {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-style: italic;
 }
-html[lang="te"] .font-display {
-    font-family: 'Noto Serif Telugu', 'Cormorant Garamond', serif;
+
+html[lang="hi"] .font-display,
+html[lang="hi"] .font-hand {
+    font-family: 'Noto Serif Devanagari', 'Playfair Display', serif;
+}
+html[lang="te"] .font-display,
+html[lang="te"] .font-hand {
+    font-family: 'Noto Serif Telugu', 'Playfair Display', serif;
     letter-spacing: 0;
 }
-html[lang="hi"], html[lang="hi"] body {
-    font-family: 'Noto Sans Devanagari', 'Manrope', system-ui, sans-serif;
-}
-html[lang="te"], html[lang="te"] body {
-    font-family: 'Noto Sans Telugu', 'Manrope', system-ui, sans-serif;
-}
+html[lang="hi"], html[lang="hi"] body { font-family: 'Noto Sans Devanagari', 'Manrope', system-ui, sans-serif; }
+html[lang="te"], html[lang="te"] body { font-family: 'Noto Sans Telugu', 'Manrope', system-ui, sans-serif; }
 
 .eyebrow {
     text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-size: 0.72rem;
-    color: var(--charcoal);
+    letter-spacing: 0.32em;
+    font-size: 0.7rem;
+    color: var(--gold-warm);
     font-weight: 500;
 }
 
@@ -52,31 +75,32 @@ html[lang="te"], html[lang="te"] body {
 
 @layer base {
     :root {
-        --background: 45 40% 96%;
-        --foreground: 24 10% 12%;
-        --card: 0 0% 100%;
-        --card-foreground: 24 10% 12%;
-        --popover: 45 40% 98%;
-        --popover-foreground: 24 10% 12%;
-        --primary: 22 15% 20%;
-        --primary-foreground: 45 40% 96%;
-        --secondary: 40 20% 92%;
-        --secondary-foreground: 22 15% 20%;
-        --muted: 40 20% 92%;
-        --muted-foreground: 24 6% 30%;
-        --accent: 36 34% 55%;
-        --accent-foreground: 0 0% 100%;
-        --destructive: 0 65% 45%;
-        --destructive-foreground: 0 0% 100%;
-        --border: 24 10% 88%;
-        --input: 24 10% 88%;
-        --ring: 22 15% 20%;
-        --chart-1: 22 15% 20%;
-        --chart-2: 36 34% 55%;
-        --chart-3: 80 10% 60%;
-        --chart-4: 22 20% 40%;
-        --chart-5: 24 6% 30%;
-        --radius: 2px;
+        /* Shadcn HSL tokens — mystical mapping */
+        --background: 251 51% 9%;      /* #0E0B24 */
+        --foreground: 38 68% 89%;      /* #F5E9D3 */
+        --card: 264 51% 14%;           /* #1B1235 */
+        --card-foreground: 38 68% 89%;
+        --popover: 258 46% 20%;
+        --popover-foreground: 38 68% 89%;
+        --primary: 46 65% 52%;         /* royal gold */
+        --primary-foreground: 251 51% 9%;
+        --secondary: 264 51% 14%;
+        --secondary-foreground: 38 68% 89%;
+        --muted: 258 46% 20%;
+        --muted-foreground: 267 22% 73%;  /* lavender */
+        --accent: 30 100% 60%;         /* saffron */
+        --accent-foreground: 251 51% 9%;
+        --destructive: 0 68% 55%;
+        --destructive-foreground: 38 68% 89%;
+        --border: 46 65% 52% / 0.22;
+        --input: 46 65% 52% / 0.30;
+        --ring: 46 65% 52%;
+        --chart-1: 46 65% 52%;
+        --chart-2: 30 100% 60%;
+        --chart-3: 267 22% 73%;
+        --chart-4: 264 51% 34%;
+        --chart-5: 38 68% 89%;
+        --radius: 999px;
     }
 }
 
@@ -85,85 +109,184 @@ html[lang="te"], html[lang="te"] body {
     body { @apply bg-background text-foreground; }
 }
 
-/* Editorial input override - bottom border only */
+/* ============================================================
+   Buttons — sacred pill shape (radius 999px)
+   ============================================================ */
+.btn-primary {
+    background: linear-gradient(135deg, #E6C87A 0%, #D4AF37 55%, #B8860B 100%);
+    color: var(--bone);
+    padding: 0.85rem 2rem;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+    border-radius: 999px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+    border: 1px solid rgba(230, 200, 122, 0.6);
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0);
+}
+.btn-primary:hover {
+    box-shadow: 0 0 32px rgba(212, 175, 55, 0.45), 0 0 12px rgba(255, 153, 51, 0.25);
+    transform: translateY(-1px);
+}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+.btn-secondary {
+    background: rgba(43, 27, 74, 0.42);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: var(--gold-warm);
+    padding: 0.85rem 2rem;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 500;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    transition: all 0.35s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+}
+.btn-secondary:hover {
+    background: rgba(43, 27, 74, 0.72);
+    border-color: var(--brass);
+    color: #FFF3D6;
+    box-shadow: 0 0 24px rgba(212, 175, 55, 0.20);
+}
+
+/* ============================================================
+   Inputs — hairline gold underscore
+   ============================================================ */
 .input-editorial {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(58, 48, 42, 0.25);
+    border-bottom: 1px solid var(--hairline);
     border-radius: 0;
-    padding: 0.65rem 0;
+    padding: 0.75rem 0;
     font-family: 'Manrope', sans-serif;
     color: var(--obsidian);
     width: 100%;
     transition: border-color 0.3s ease;
 }
-
 .input-editorial:focus {
     outline: none;
-    border-bottom-color: var(--espresso);
+    border-bottom-color: var(--brass);
 }
-
-.input-editorial::placeholder { color: rgba(76, 70, 67, 0.45); }
-
-.btn-primary {
+.input-editorial::placeholder { color: rgba(182, 169, 204, 0.55); }
+.input-editorial option {
     background: var(--espresso);
-    color: var(--bone);
-    padding: 0.85rem 2rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    font-weight: 500;
-    transition: background 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    border: none;
+    color: var(--obsidian);
 }
-
-.btn-primary:hover { background: var(--obsidian); }
-.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-
-.btn-secondary {
-    background: transparent;
-    color: var(--espresso);
-    padding: 0.85rem 2rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-size: 0.78rem;
-    font-weight: 500;
-    border: 1px solid rgba(58, 48, 42, 0.35);
-    transition: background 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.input-editorial::-webkit-calendar-picker-indicator {
+    filter: invert(0.85) sepia(0.6) saturate(2) hue-rotate(-5deg);
+    opacity: 0.75;
     cursor: pointer;
 }
-.btn-secondary:hover { background: var(--beige); }
 
+/* ============================================================
+   Glassmorphic Cards
+   ============================================================ */
 .card-editorial {
-    background: var(--beige);
-    border: 1px solid rgba(184, 151, 100, 0.25);
+    position: relative;
+    background: rgba(27, 18, 53, 0.55);
+    backdrop-filter: blur(18px) saturate(1.1);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    border: 1px solid var(--hairline);
     padding: 2rem;
-    transition: all 0.4s ease;
+    border-radius: 20px;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+}
+.card-editorial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 40%, rgba(255,153,51,0.04) 100%);
+    pointer-events: none;
 }
 .card-editorial:hover {
-    border-color: rgba(184, 151, 100, 0.55);
-    transform: translateY(-2px);
+    border-color: var(--hairline-strong);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(212,175,55,0.10),
+                0 0 32px rgba(212, 175, 55, 0.10);
+}
+.card-editorial > * { position: relative; z-index: 1; }
+
+/* Glass utility for header/nav bars */
+.glass {
+    background: rgba(14, 11, 36, 0.68);
+    backdrop-filter: blur(20px) saturate(1.4);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid var(--hairline-soft);
 }
 
+/* ============================================================
+   Constellation dot texture — refined for dark bg
+   ============================================================ */
 .constellation {
-    background-image: radial-gradient(circle at 12% 30%, rgba(184,151,100,0.4) 1px, transparent 1.5px),
-                      radial-gradient(circle at 78% 20%, rgba(184,151,100,0.3) 1px, transparent 1.5px),
-                      radial-gradient(circle at 40% 70%, rgba(58,48,42,0.25) 1px, transparent 1.5px),
-                      radial-gradient(circle at 88% 85%, rgba(184,151,100,0.35) 1px, transparent 1.5px),
-                      radial-gradient(circle at 22% 88%, rgba(58,48,42,0.2) 1px, transparent 1.5px);
+    background-image:
+        radial-gradient(circle at 12% 30%, rgba(230,200,122,0.55) 1px, transparent 1.5px),
+        radial-gradient(circle at 78% 20%, rgba(212,175,55,0.45) 1px, transparent 1.8px),
+        radial-gradient(circle at 40% 70%, rgba(245,233,211,0.35) 1px, transparent 1.5px),
+        radial-gradient(circle at 88% 85%, rgba(255,153,51,0.30) 1px, transparent 1.8px),
+        radial-gradient(circle at 22% 88%, rgba(212,175,55,0.35) 1px, transparent 1.5px),
+        radial-gradient(circle at 55% 42%, rgba(230,200,122,0.40) 1px, transparent 1.5px),
+        radial-gradient(circle at 66% 62%, rgba(212,175,55,0.28) 1px, transparent 1.5px),
+        radial-gradient(circle at 8% 60%, rgba(245,233,211,0.30) 1px, transparent 1.5px),
+        radial-gradient(circle at 95% 45%, rgba(212,175,55,0.32) 1px, transparent 1.5px);
     background-size: 100% 100%;
 }
 
+/* ============================================================
+   Sacred Geometry SVG backgrounds (inline data URIs)
+   ============================================================ */
+.sri-yantra-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' fill='none' stroke='%23D4AF37' stroke-width='0.6' opacity='0.5'><circle cx='200' cy='200' r='190'/><circle cx='200' cy='200' r='150'/><circle cx='200' cy='200' r='110'/><polygon points='200,60 340,290 60,290'/><polygon points='200,340 60,110 340,110'/><polygon points='200,110 320,275 80,275'/><polygon points='200,290 80,125 320,125'/><polygon points='200,145 300,265 100,265'/><polygon points='200,255 100,135 300,135'/><circle cx='200' cy='200' r='4' fill='%23D4AF37'/><g stroke='%23FF9933' stroke-width='0.4' opacity='0.6'><circle cx='200' cy='200' r='170'/><circle cx='200' cy='200' r='90'/></g></svg>");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.mandala-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500' fill='none' stroke='%23D4AF37' stroke-width='0.5' opacity='0.28'><g transform='translate(250 250)'><circle r='230'/><circle r='190'/><circle r='150'/><circle r='110'/><circle r='70'/><circle r='30'/><g><line x1='0' y1='-230' x2='0' y2='230'/><line x1='-230' y1='0' x2='230' y2='0'/><line x1='-163' y1='-163' x2='163' y2='163'/><line x1='-163' y1='163' x2='163' y2='-163'/></g><g stroke='%23FF9933' stroke-width='0.4'><line x1='0' y1='-230' x2='0' y2='230' transform='rotate(22.5)'/><line x1='0' y1='-230' x2='0' y2='230' transform='rotate(67.5)'/><line x1='0' y1='-230' x2='0' y2='230' transform='rotate(112.5)'/><line x1='0' y1='-230' x2='0' y2='230' transform='rotate(157.5)'/></g><g fill='%23D4AF37'><circle cx='0' cy='-190' r='2.5'/><circle cx='134' cy='-134' r='2.5'/><circle cx='190' cy='0' r='2.5'/><circle cx='134' cy='134' r='2.5'/><circle cx='0' cy='190' r='2.5'/><circle cx='-134' cy='134' r='2.5'/><circle cx='-190' cy='0' r='2.5'/><circle cx='-134' cy='-134' r='2.5'/></g></g></svg>");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+}
+
+/* Cosmic aurora — soft conic gradient behind hero */
+.aurora {
+    position: absolute;
+    inset: -20%;
+    background:
+        conic-gradient(from 220deg at 30% 40%,
+            rgba(255,153,51,0.10) 0deg,
+            rgba(75,43,114,0.35) 60deg,
+            rgba(14,11,36,0) 130deg,
+            rgba(212,175,55,0.12) 200deg,
+            rgba(75,43,114,0.25) 260deg,
+            rgba(255,153,51,0.10) 360deg);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Animations */
 @keyframes drift {
     0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(6px, -6px); }
+    50% { transform: translate(8px, -8px); }
 }
 .drift { animation: drift 8s ease-in-out infinite; }
 
@@ -171,7 +294,8 @@ html[lang="te"], html[lang="te"] body {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-.rotate-slow { animation: rotate-slow 90s linear infinite; }
+.rotate-slow { animation: rotate-slow 120s linear infinite; }
+.rotate-reverse { animation: rotate-slow 180s linear infinite reverse; }
 
 @keyframes fade-up {
     from { opacity: 0; transform: translateY(24px); }
@@ -183,4 +307,26 @@ html[lang="te"], html[lang="te"] body {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 
+@keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+.twinkle { animation: twinkle 3.5s ease-in-out infinite; }
+
+@keyframes glow-pulse {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(212,175,55,0.35)); }
+    50%      { filter: drop-shadow(0 0 24px rgba(212,175,55,0.75)); }
+}
+.glow-pulse { animation: glow-pulse 4s ease-in-out infinite; }
+
 ::selection { background: var(--brass); color: var(--bone); }
+
+/* Recharts axes in mystical palette */
+.recharts-cartesian-axis-tick text { fill: var(--charcoal) !important; }
+.recharts-cartesian-grid line { stroke: rgba(212, 175, 55, 0.12) !important; }
+
+/* Elegant scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--plum-deep); }
+::-webkit-scrollbar-thumb { background: rgba(212,175,55,0.35); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.55); }

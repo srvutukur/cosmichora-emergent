@@ -62,8 +62,8 @@ function SettingRow({ setting, onSave, isSecret }) {
   const [val, setVal] = useState(setting.value ?? "");
   const large = typeof setting.value === "string" && (setting.value.length > 60 || setting.key.includes("template") || setting.key.includes("prompt"));
   return (
-    <div className="grid md:grid-cols-[280px_1fr_auto] gap-3 items-center p-4" style={{ background: "white", border: "1px solid rgba(58,48,42,0.08)" }}>
-      <div className="text-xs font-mono" style={{ color: "var(--espresso)" }}>{setting.key}</div>
+    <div className="grid md:grid-cols-[280px_1fr_auto] gap-3 items-center p-4" style={{ background: "rgba(27,18,53,0.55)", border: "1px solid var(--hairline-soft)" }}>
+      <div className="text-xs font-mono" style={{ color: "var(--brass)" }}>{setting.key}</div>
       {large ? (
         <textarea rows={3} className="input-editorial" value={val} onChange={(e) => setVal(e.target.value)} />
       ) : (

@@ -119,9 +119,9 @@ export default function BirthForm() {
                 <span>− {discount}%</span>
               </div>
             )}
-            <div className="mt-6 pt-6 flex justify-between items-baseline" style={{ borderTop: "1px solid rgba(58,48,42,0.1)" }}>
+            <div className="mt-6 pt-6 flex justify-between items-baseline" style={{ borderTop: "1px solid var(--hairline)" }}>
               <span className="eyebrow">{t("bf_total")}</span>
-              <span className="font-display text-3xl" style={{ color: "var(--espresso)" }}>₹{finalAmount}</span>
+              <span className="font-display text-3xl" style={{ color: "var(--brass)" }}>₹{finalAmount}</span>
             </div>
           </div>
         </div>
@@ -136,11 +136,11 @@ export default function BirthForm() {
               <div key={label} className="flex items-center gap-3">
                 <span className="inline-flex w-8 h-8 items-center justify-center rounded-full text-xs" style={{
                   background: done ? "var(--espresso)" : (active ? "var(--brass)" : "transparent"),
-                  border: "1px solid rgba(58,48,42,0.2)",
+                  border: "1px solid var(--hairline-strong)",
                   color: (done || active) ? "var(--bone)" : "var(--charcoal)",
                 }}>{done ? <Check size={14} /> : n}</span>
                 <span style={{ color: active ? "var(--obsidian)" : "var(--charcoal)" }}>{label}</span>
-                {i < 2 && <span className="w-8 h-px" style={{ background: "rgba(58,48,42,0.15)" }} />}
+                {i < 2 && <span className="w-8 h-px" style={{ background: "var(--hairline)" }} />}
               </div>
             );
           })}
@@ -216,7 +216,7 @@ export default function BirthForm() {
         {step === 3 && order && (
           <div className="fade-up text-center py-8">
             <div className="inline-flex w-16 h-16 items-center justify-center rounded-full mb-6" style={{ background: "var(--espresso)" }}>
-              <Check size={26} color="#F9F8F3" />
+              <Check size={26} color="#F5E9D3" />
             </div>
             <h3 className="font-display text-4xl tracking-tight" style={{ color: "var(--obsidian)" }}>
               {t("bf_ready_title")}

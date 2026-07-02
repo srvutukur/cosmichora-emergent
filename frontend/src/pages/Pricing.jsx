@@ -32,7 +32,7 @@ export default function Pricing() {
             <div className="font-display text-5xl mt-3 mb-6" style={{ color: b.featured ? "var(--bone)" : "var(--obsidian)" }}>₹{b.price}</div>
             <ul className="space-y-3 mb-8">
               {b.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm" style={{ color: b.featured ? "rgba(249,248,243,0.85)" : "var(--charcoal)" }}>
+                <li key={f} className="flex items-start gap-2 text-sm" style={{ color: b.featured ? "rgba(14,11,36,0.75)" : "var(--charcoal)" }}>
                   <Check size={14} style={{ color: "var(--brass)", marginTop: 3 }} /> {f}
                 </li>
               ))}
@@ -48,7 +48,7 @@ export default function Pricing() {
         <div className="eyebrow mb-4">{t("pricing_individual")}</div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {reports.map(tReport).map((r) => (
-            <Link key={r.id} to={`/reports/${r.slug}`} className="flex items-center justify-between p-5 border" style={{ borderColor: "rgba(58,48,42,0.1)" }}>
+            <Link key={r.id} to={`/reports/${r.slug}`} className="flex items-center justify-between p-5 border" style={{ borderColor: "var(--hairline)" }}>
               <span style={{ color: "var(--obsidian)" }}>{r.title}</span>
               <span className="font-display text-lg" style={{ color: "var(--brass)" }}>₹{r.price}</span>
             </Link>

@@ -52,7 +52,7 @@ export default function Reports() {
               {r.description}
             </p>
             <div className="flex items-center justify-between">
-              <span className="font-display text-xl" style={{ color: "var(--espresso)" }}>
+              <span className="font-display text-xl" style={{ color: "var(--brass)" }}>
                 {r.price > 0 ? `₹${r.price}` : t("free")}
               </span>
               <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest" style={{ color: "var(--brass)" }}>

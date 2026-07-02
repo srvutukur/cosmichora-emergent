@@ -19,31 +19,31 @@ export default function AdminHome() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="p-6" style={{ background: "white", border: "1px solid rgba(58,48,42,0.08)" }}>
+        <div className="p-6" style={{ background: "rgba(27,18,53,0.55)", border: "1px solid var(--hairline-soft)" }}>
           <div className="eyebrow mb-4">Revenue · last 14 days</div>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={a.daily}>
-              <CartesianGrid stroke="rgba(58,48,42,0.06)" vertical={false} />
-              <XAxis dataKey="date" fontSize={10} stroke="#4C4643" />
-              <YAxis fontSize={10} stroke="#4C4643" />
+              <CartesianGrid stroke="var(--hairline-soft)" vertical={false} />
+              <XAxis dataKey="date" fontSize={10} stroke="#B6A9CC" />
+              <YAxis fontSize={10} stroke="#B6A9CC" />
               <Tooltip
-                contentStyle={{ background: "#F9F8F3", border: "1px solid rgba(58,48,42,0.15)" }}
+                contentStyle={{ background: "#2A1B4A", color: "#F5E9D3", border: "1px solid var(--hairline)" }}
                 formatter={(v) => [`₹${Number(v).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`, "Revenue"]}
               />
-              <Line type="monotone" dataKey="revenue" stroke="#3A302A" strokeWidth={2} dot={{ fill: "#B89764" }} />
+              <Line type="monotone" dataKey="revenue" stroke="#D4AF37" strokeWidth={2} dot={{ fill: "#E6C87A" }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="p-6" style={{ background: "white", border: "1px solid rgba(58,48,42,0.08)" }}>
+        <div className="p-6" style={{ background: "rgba(27,18,53,0.55)", border: "1px solid var(--hairline-soft)" }}>
           <div className="eyebrow mb-4">Orders by report type</div>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={a.by_type}>
-              <CartesianGrid stroke="rgba(58,48,42,0.06)" vertical={false} />
-              <XAxis dataKey="name" fontSize={9} stroke="#4C4643" interval={0} angle={-15} textAnchor="end" height={60} />
-              <YAxis fontSize={10} stroke="#4C4643" />
-              <Tooltip contentStyle={{ background: "#F9F8F3", border: "1px solid rgba(58,48,42,0.15)" }} />
-              <Bar dataKey="count" fill="#B89764" />
+              <CartesianGrid stroke="var(--hairline-soft)" vertical={false} />
+              <XAxis dataKey="name" fontSize={9} stroke="#B6A9CC" interval={0} angle={-15} textAnchor="end" height={60} />
+              <YAxis fontSize={10} stroke="#B6A9CC" />
+              <Tooltip contentStyle={{ background: "#2A1B4A", color: "#F5E9D3", border: "1px solid var(--hairline)" }} />
+              <Bar dataKey="count" fill="#E6C87A" />
             </BarChart>
           </ResponsiveContainer>
         </div>

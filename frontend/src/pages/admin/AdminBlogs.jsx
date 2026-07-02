@@ -46,8 +46,8 @@ export default function AdminBlogs() {
         rows={items}
       />
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-6" style={{ background: "rgba(31,29,26,0.5)" }}>
-          <div className="w-full max-w-3xl p-8 max-h-[90vh] overflow-y-auto" style={{ background: "var(--bone)" }}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-6" style={{ background: "rgba(5,3,15,0.72)" }}>
+          <div className="w-full max-w-3xl p-8 max-h-[90vh] overflow-y-auto" style={{ background: "var(--espresso)", border: "1px solid var(--hairline)", borderRadius: 20 }}>
             <div className="flex justify-between mb-6"><div className="font-display text-3xl">Blog post</div><button onClick={() => setOpen(false)}><X /></button></div>
             <div className="grid md:grid-cols-2 gap-6">
               <F label="Title"><input className="input-editorial" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} /></F>

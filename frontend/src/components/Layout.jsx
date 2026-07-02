@@ -19,7 +19,7 @@ function LangSwitch({ mobile = false, langs, lang, setLang, open, setOpen }) {
       {open && (
         <div
           className={`absolute ${mobile ? "left-0" : "right-0"} mt-3 min-w-[160px] py-2 z-50`}
-          style={{ background: "var(--bone)", border: "1px solid rgba(58,48,42,0.15)" }}
+          style={{ background: "var(--bone)", border: "1px solid var(--hairline)" }}
         >
           {langs.map((l) => (
             <button
@@ -58,16 +58,16 @@ export default function Layout() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "var(--bone)" }}>
+    <div className="min-h-screen flex flex-col" style={{ background: "var(--espresso)", border: "1px solid var(--hairline)", borderRadius: 20 }}>
       <header
         data-testid="site-header"
         className="sticky top-0 z-50 backdrop-blur-xl"
-        style={{ background: "rgba(249,248,243,0.85)", borderBottom: "1px solid rgba(58,48,42,0.08)" }}
+        style={{ background: "rgba(14,11,36,0.75)", borderBottom: "1px solid var(--hairline-soft)" }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
           <Link to="/" data-testid="brand-logo" className="flex items-center gap-3">
             <span className="inline-flex w-9 h-9 items-center justify-center rounded-full" style={{ background: "var(--espresso)" }}>
-              <Moon size={16} color="#F9F8F3" />
+              <Moon size={16} color="#F5E9D3" />
             </span>
             <span className="font-display text-2xl tracking-tight" style={{ color: "var(--obsidian)" }}>
               Cosmic Hora
@@ -120,7 +120,7 @@ export default function Layout() {
         </div>
 
         {open && (
-          <div className="lg:hidden px-6 pb-6 space-y-4" style={{ borderTop: "1px solid rgba(58,48,42,0.08)" }}>
+          <div className="lg:hidden px-6 pb-6 space-y-4" style={{ borderTop: "1px solid var(--hairline-soft)" }}>
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block py-2 text-sm" style={{ color: "var(--charcoal)" }}>
                 {n.label}
@@ -149,7 +149,7 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <footer data-testid="site-footer" style={{ background: "var(--beige)", borderTop: "1px solid rgba(58,48,42,0.08)" }}>
+      <footer data-testid="site-footer" style={{ background: "var(--beige)", borderTop: "1px solid var(--hairline-soft)" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="font-display text-2xl mb-3" style={{ color: "var(--obsidian)" }}>Cosmic Hora</div>
@@ -183,7 +183,7 @@ export default function Layout() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 text-xs flex flex-col md:flex-row justify-between gap-2"
-             style={{ color: "var(--charcoal)", borderTop: "1px solid rgba(58,48,42,0.08)" }}>
+             style={{ color: "var(--charcoal)", borderTop: "1px solid var(--hairline-soft)" }}>
           <span>© {new Date().getFullYear()} Cosmic Hora. {t("footer_rights")}</span>
           <span>{t("footer_madewith")}</span>
         </div>

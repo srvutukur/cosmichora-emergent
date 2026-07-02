@@ -26,16 +26,16 @@ export default function AdminLayout() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex" style={{ background: "var(--bone)" }}>
+    <div className="min-h-screen flex" style={{ background: "var(--espresso)", border: "1px solid var(--hairline)", borderRadius: 20 }}>
       <aside
         data-testid="admin-sidebar"
         className={`${open ? "block" : "hidden"} lg:block w-72 shrink-0 fixed lg:static inset-y-0 left-0 z-40`}
-        style={{ background: "var(--beige)", borderRight: "1px solid rgba(58,48,42,0.08)" }}
+        style={{ background: "var(--beige)", borderRight: "1px solid var(--hairline-soft)" }}
       >
-        <div className="p-6" style={{ borderBottom: "1px solid rgba(58,48,42,0.08)" }}>
+        <div className="p-6" style={{ borderBottom: "1px solid var(--hairline-soft)" }}>
           <Link to="/" className="flex items-center gap-3">
             <span className="inline-flex w-9 h-9 items-center justify-center rounded-full" style={{ background: "var(--espresso)" }}>
-              <Moon size={16} color="#F9F8F3" />
+              <Moon size={16} color="#F5E9D3" />
             </span>
             <span className="font-display text-xl" style={{ color: "var(--obsidian)" }}>Cosmic Hora</span>
           </Link>
@@ -64,7 +64,7 @@ export default function AdminLayout() {
             </NavLink>
           ))}
         </nav>
-        <div className="p-4 mt-4" style={{ borderTop: "1px solid rgba(58,48,42,0.08)" }}>
+        <div className="p-4 mt-4" style={{ borderTop: "1px solid var(--hairline-soft)" }}>
           <div className="text-sm mb-2" style={{ color: "var(--charcoal)" }}>{user?.name}</div>
           <div className="text-xs mb-3" style={{ color: "var(--charcoal)" }}>{user?.email}</div>
           <button
@@ -78,7 +78,7 @@ export default function AdminLayout() {
       </aside>
 
       <div className="flex-1 min-w-0">
-        <div className="lg:hidden p-4 flex items-center justify-between" style={{ borderBottom: "1px solid rgba(58,48,42,0.08)" }}>
+        <div className="lg:hidden p-4 flex items-center justify-between" style={{ borderBottom: "1px solid var(--hairline-soft)" }}>
           <button data-testid="admin-menu-toggle" onClick={() => setOpen(!open)} className="btn-secondary">Menu</button>
           <span className="font-display text-lg">Admin</span>
         </div>
