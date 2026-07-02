@@ -14,6 +14,7 @@ import Pricing from "./pages/Pricing";
 import Reports from "./pages/Reports";
 import BirthForm from "./pages/BirthForm";
 import Dashboard from "./pages/Dashboard";
+import ReportView from "./pages/ReportView";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Blog from "./pages/Blog";
@@ -64,6 +65,10 @@ export default function App() {
             <Route
               path="/dashboard"
               element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
+            />
+            <Route
+              path="/reports/view/:orderId"
+              element={<ProtectedRoute><ReportView /></ProtectedRoute>}
             />
           </Route>
 

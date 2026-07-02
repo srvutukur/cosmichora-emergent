@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import api, { formatApiError } from "../lib/api";
 import { useAuth } from "../lib/auth";
 import { useI18n } from "../lib/i18n";
@@ -225,7 +225,14 @@ export default function BirthForm() {
               {t("bf_ready_body", { email: order.user_email })}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a data-testid="download-pdf-btn" className="btn-primary" href={`${api.defaults.baseURL}/orders/${order.id}/pdf`} target="_blank" rel="noreferrer">
+              <Link
+                data-testid="view-report-btn"
+                to={`/reports/view/${order.id}`}
+                className="btn-primary"
+              >
+                {t("rv_view")}
+              </Link>
+              <a data-testid="download-pdf-btn" className="btn-secondary" href={`${api.defaults.baseURL}/orders/${order.id}/pdf`} target="_blank" rel="noreferrer">
                 {t("bf_download")}
               </a>
               <button data-testid="go-dashboard-btn" className="btn-secondary" onClick={() => nav("/dashboard")}>

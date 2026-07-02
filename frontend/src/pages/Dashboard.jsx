@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../lib/auth";
 import { useI18n } from "../lib/i18n";
 import api from "../lib/api";
-import { Download, Clock, Check } from "lucide-react";
+import { Download, Eye, Clock, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
@@ -54,14 +54,23 @@ export default function Dashboard() {
               </div>
               <div className="flex items-center gap-3">
                 {o.status === "completed" ? (
-                  <a
-                    data-testid={`download-${o.id}`}
-                    href={`${api.defaults.baseURL}/orders/${o.id}/pdf`}
-                    target="_blank" rel="noreferrer"
-                    className="btn-primary"
-                  >
-                    <Download size={14} /> {t("dash_pdf")}
-                  </a>
+                  <>
+                    <Link
+                      data-testid={`view-${o.id}`}
+                      to={`/reports/view/${o.id}`}
+                      className="btn-secondary"
+                    >
+                      <Eye size={14} /> {t("dash_view")}
+                    </Link>
+                    <a
+                      data-testid={`download-${o.id}`}
+                      href={`${api.defaults.baseURL}/orders/${o.id}/pdf`}
+                      target="_blank" rel="noreferrer"
+                      className="btn-primary"
+                    >
+                      <Download size={14} /> {t("dash_pdf")}
+                    </a>
+                  </>
                 ) : o.status === "pending" ? (
                   <span className="btn-secondary" style={{ cursor: "default" }}>
                     <Clock size={14} /> {t("dash_pending")}

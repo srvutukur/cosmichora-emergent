@@ -325,6 +325,22 @@ html[lang="te"], html[lang="te"] body { font-family: 'Noto Sans Telugu', 'Manrop
 .recharts-cartesian-axis-tick text { fill: var(--charcoal) !important; }
 .recharts-cartesian-grid line { stroke: rgba(212, 175, 55, 0.12) !important; }
 
+/* Report body — style bolded section headers from the mock report HTML */
+.report-body b {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--gold-warm, #E6C87A);
+    letter-spacing: 0.02em;
+    font-size: 1.35rem;
+    margin-top: 0.4rem;
+}
+.report-body i {
+    color: var(--charcoal);
+    font-size: 0.9rem;
+}
+
 /* Elegant scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--plum-deep); }

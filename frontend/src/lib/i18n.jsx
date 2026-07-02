@@ -116,7 +116,20 @@ const DICT = {
     dash_empty_body: "Begin with any of our 15 report types.",
     dash_browse: "Browse reports",
     dash_pdf: "PDF",
+    dash_view: "View",
     dash_pending: "Payment pending",
+
+    // Report View
+    rv_your_report: "Your Reading",
+    rv_prepared_for: "Prepared for {name}",
+    rv_birth_details: "Birth Details",
+    rv_generated: "Generated",
+    rv_reading: "The Reading",
+    rv_download_pdf: "Download PDF",
+    rv_downloading: "Opening your PDF…",
+    rv_pending_title: "Your report is being prepared",
+    rv_pending_body: "Please complete your payment to view the report.",
+    rv_view: "View Report",
 
     // Static pages
     about_eyebrow: "Our Story",
@@ -304,7 +317,20 @@ const DICT = {
     dash_empty_body: "हमारे 15 रिपोर्ट प्रकारों में से किसी से आरंभ करें।",
     dash_browse: "रिपोर्ट्स ब्राउज़ करें",
     dash_pdf: "PDF",
+    dash_view: "देखें",
     dash_pending: "भुगतान लंबित",
+
+    // Report View
+    rv_your_report: "आपकी रीडिंग",
+    rv_prepared_for: "{name} के लिए तैयार",
+    rv_birth_details: "जन्म विवरण",
+    rv_generated: "निर्मित",
+    rv_reading: "रीडिंग",
+    rv_download_pdf: "PDF डाउनलोड करें",
+    rv_downloading: "आपकी PDF खोली जा रही है…",
+    rv_pending_title: "आपकी रिपोर्ट तैयार हो रही है",
+    rv_pending_body: "रिपोर्ट देखने के लिए कृपया अपना भुगतान पूरा करें।",
+    rv_view: "रिपोर्ट देखें",
 
     about_eyebrow: "हमारी कहानी",
     about_title_1: "प्राचीन प्रकाश,", about_title_2: "धैर्य से अध्ययन किया।",
@@ -489,7 +515,20 @@ const DICT = {
     dash_empty_body: "మా 15 నివేదిక రకాలలో దేనితోనైనా ప్రారంభించండి.",
     dash_browse: "నివేదికలను బ్రౌజ్ చేయండి",
     dash_pdf: "PDF",
+    dash_view: "చూడండి",
     dash_pending: "చెల్లింపు పెండింగ్‌లో ఉంది",
+
+    // Report View
+    rv_your_report: "మీ రీడింగ్",
+    rv_prepared_for: "{name} కోసం సిద్ధం చేయబడింది",
+    rv_birth_details: "జన్మ వివరాలు",
+    rv_generated: "సృష్టించబడింది",
+    rv_reading: "పఠనం",
+    rv_download_pdf: "PDF డౌన్‌లోడ్ చేయండి",
+    rv_downloading: "మీ PDF తెరవబడుతోంది…",
+    rv_pending_title: "మీ నివేదిక సిద్ధమవుతోంది",
+    rv_pending_body: "నివేదికను చూడటానికి దయచేసి మీ చెల్లింపును పూర్తి చేయండి.",
+    rv_view: "నివేదిక చూడండి",
 
     about_eyebrow: "మా కథ",
     about_title_1: "పురాతన కాంతి,", about_title_2: "సహనంతో అధ్యయనం చేయబడింది.",
