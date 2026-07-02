@@ -61,13 +61,17 @@ today, real URLs to be plugged in later).
 - Mocked payment + mocked email (logged in db.email_log)
 - Testing: **29/29 backend tests pass**; full Playwright user + admin journeys pass
 
-## Implemented (2026-02-07 — i18n update)
-- Trilingual UI: **English + हिन्दी (Hindi) + తెలుగు (Telugu)**
-- Language switcher in header (`data-testid=lang-switch-btn`), persisted in `localStorage.ch_lang`
-- `html[lang]` attribute updates for CSS-driven Noto Serif Devanagari / Noto Serif Telugu font swap
-- All UI strings (~200 keys) translated across Home, Reports, Birth form, Dashboard, Auth, About, Services, Pricing, Blog, Contact, Appointment, FAQ
-- Report titles + taglines translated per slug via `tReport()`
-- Testing: **100% i18n frontend pass** (iteration 2)
+## Implemented (2026-02-07 — Mystical Vedic overhaul)
+- Complete visual overhaul from editorial beige → **Modern Spiritual mystical** aesthetic
+- Palette: Midnight Indigo `#0E0B24` + Dark Plum `#1B1235` + Royal Gold `#D4AF37` + Saffron `#FF9933`
+- **Playfair Display** headings paired with Manrope body, italic Cormorant for accents
+- **AI-generated celestial hero image** (via Gemini Nano Banana / `emergentintegrations`) at `/generated/hero-celestial.png` — Sri Yantra + zodiac wheel + nebula
+- Custom **ZodiacWheel SVG component** (12 signs, Shatkona hexagram, twinkling stars, slow rotation, glow-pulse)
+- Sacred geometry motifs in CSS (Sri Yantra + Mandala data-URI SVGs) behind sections
+- **Glassmorphism** cards (backdrop-blur 18px, gold hairline, subtle inner gradient)
+- Gold-gradient primary buttons (pill-shaped, radius 999px, glowing hover shadow)
+- Cosmic aurora conic gradient + baked-in nebula radial gradients in body bg
+- Testing: **100% frontend pass** (iteration 3), zero contrast bugs, all previous flows intact
 
 ## What's Deferred (P1/P2 Backlog)
 - P1: Real Razorpay integration (test keys + webhook signature verify)

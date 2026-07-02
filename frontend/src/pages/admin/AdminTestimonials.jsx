@@ -28,7 +28,7 @@ export default function AdminTestimonials() {
   return (
     <AdminPage>
       <AdminHeader title="Testimonials" subtitle="Voices of seekers"
-        actions={<button className="btn-primary" onClick={() => { setEditId(null); setForm(EMPTY); setOpen(true); }}><Plus size={14} /> New</button>} />
+        actions={<button data-testid="tst-add-btn" className="btn-primary" onClick={() => { setEditId(null); setForm(EMPTY); setOpen(true); }}><Plus size={14} /> New</button>} />
       <Table
         columns={[
           { key: "name", label: "Name" },
@@ -58,7 +58,7 @@ export default function AdminTestimonials() {
             </div>
             <div className="mt-8 flex justify-end gap-3">
               <button className="btn-secondary" onClick={() => setOpen(false)}>Cancel</button>
-              <button className="btn-primary" onClick={submit}>Save</button>
+              <button data-testid="tst-save-btn" className="btn-primary" onClick={submit}>Save</button>
             </div>
           </div>
         </div>
