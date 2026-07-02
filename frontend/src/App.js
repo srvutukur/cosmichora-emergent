@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
 import { AuthProvider } from "./lib/auth";
+import { I18nProvider } from "./lib/i18n";
 import Layout from "./components/Layout";
 import AdminLayout from "./components/AdminLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -38,8 +39,9 @@ import "./App.css";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <I18nProvider>
+      <AuthProvider>
+        <BrowserRouter>
         <Toaster position="top-center" richColors closeButton />
         <Routes>
           <Route element={<Layout />}>
@@ -82,7 +84,8 @@ export default function App() {
             <Route path="settings" element={<AdminSettings />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+        </BrowserRouter>
+      </AuthProvider>
+    </I18nProvider>
   );
 }

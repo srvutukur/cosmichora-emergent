@@ -1,23 +1,61 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../lib/auth";
-import { Menu, X, Moon } from "lucide-react";
+import { useI18n } from "../lib/i18n";
+import { Menu, X, Moon, Globe, Check } from "lucide-react";
 
-const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/reports", label: "Reports" },
-  { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/blog", label: "Journal" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-];
+function LangSwitch({ mobile = false, langs, lang, setLang, open, setOpen }) {
+  const current = langs.find((l) => l.code === lang) || langs[0];
+  return (
+    <div className="relative">
+      <button
+        data-testid="lang-switch-btn"
+        onClick={() => setOpen(!open)}
+        className="inline-flex items-center gap-1.5 text-sm tracking-wide"
+        style={{ color: "var(--charcoal)" }}
+      >
+        <Globe size={14} /> {current.short}
+      </button>
+      {open && (
+        <div
+          className={`absolute ${mobile ? "left-0" : "right-0"} mt-3 min-w-[160px] py-2 z-50`}
+          style={{ background: "var(--bone)", border: "1px solid rgba(58,48,42,0.15)" }}
+        >
+          {langs.map((l) => (
+            <button
+              key={l.code}
+              data-testid={`lang-option-${l.code}`}
+              onClick={() => { setLang(l.code); setOpen(false); }}
+              className="w-full flex items-center justify-between px-4 py-2 text-sm hover:bg-black/5"
+              style={{ color: "var(--obsidian)" }}
+            >
+              <span>{l.label}</span>
+              {lang === l.code && <Check size={12} style={{ color: "var(--brass)" }} />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Layout() {
   const { user, logout } = useAuth();
+  const { t, lang, setLang, langs } = useI18n();
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const nav = useNavigate();
   const loc = useLocation();
+
+  const NAV = [
+    { to: "/", label: t("nav_home") },
+    { to: "/reports", label: t("nav_reports") },
+    { to: "/services", label: t("nav_services") },
+    { to: "/pricing", label: t("nav_pricing") },
+    { to: "/blog", label: t("nav_journal") },
+    { to: "/about", label: t("nav_about") },
+    { to: "/contact", label: t("nav_contact") },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "var(--bone)" }}>
@@ -41,7 +79,7 @@ export default function Layout() {
               <Link
                 key={n.to}
                 to={n.to}
-                data-testid={`nav-${n.label.toLowerCase()}`}
+                data-testid={`nav-${n.to.replace("/", "") || "home"}`}
                 className="text-sm tracking-wide transition-colors"
                 style={{
                   color: loc.pathname === n.to ? "var(--espresso)" : "var(--charcoal)",
@@ -54,27 +92,31 @@ export default function Layout() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
+            <LangSwitch langs={langs} lang={lang} setLang={setLang} open={langOpen} setOpen={setLangOpen} />
             {user ? (
               <>
                 <Link to={user.role === "admin" ? "/admin" : "/dashboard"} data-testid="nav-dashboard" className="btn-secondary">
-                  {user.role === "admin" ? "Admin" : "Dashboard"}
+                  {user.role === "admin" ? t("nav_admin") : t("nav_dashboard")}
                 </Link>
                 <button data-testid="nav-logout" onClick={async () => { await logout(); nav("/"); }} className="btn-primary">
-                  Sign out
+                  {t("nav_signout")}
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" data-testid="nav-login" className="btn-secondary">Sign in</Link>
-                <Link to="/register" data-testid="nav-register" className="btn-primary">Begin</Link>
+                <Link to="/login" data-testid="nav-login" className="btn-secondary">{t("nav_signin")}</Link>
+                <Link to="/register" data-testid="nav-register" className="btn-primary">{t("nav_begin")}</Link>
               </>
             )}
           </div>
 
-          <button className="lg:hidden" data-testid="mobile-menu-toggle" onClick={() => setOpen(!open)}>
-            {open ? <X /> : <Menu />}
-          </button>
+          <div className="lg:hidden flex items-center gap-3">
+            <LangSwitch mobile langs={langs} lang={lang} setLang={setLang} open={langOpen} setOpen={setLangOpen} />
+            <button data-testid="mobile-menu-toggle" onClick={() => setOpen(!open)}>
+              {open ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
 
         {open && (
@@ -87,16 +129,16 @@ export default function Layout() {
             {user ? (
               <>
                 <Link to={user.role === "admin" ? "/admin" : "/dashboard"} onClick={() => setOpen(false)} className="btn-secondary w-full justify-center">
-                  {user.role === "admin" ? "Admin" : "Dashboard"}
+                  {user.role === "admin" ? t("nav_admin") : t("nav_dashboard")}
                 </Link>
                 <button onClick={async () => { await logout(); nav("/"); setOpen(false); }} className="btn-primary w-full justify-center">
-                  Sign out
+                  {t("nav_signout")}
                 </button>
               </>
             ) : (
               <div className="flex gap-2">
-                <Link to="/login" onClick={() => setOpen(false)} className="btn-secondary flex-1 justify-center">Sign in</Link>
-                <Link to="/register" onClick={() => setOpen(false)} className="btn-primary flex-1 justify-center">Begin</Link>
+                <Link to="/login" onClick={() => setOpen(false)} className="btn-secondary flex-1 justify-center">{t("nav_signin")}</Link>
+                <Link to="/register" onClick={() => setOpen(false)} className="btn-primary flex-1 justify-center">{t("nav_begin")}</Link>
               </div>
             )}
           </div>
@@ -111,30 +153,28 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="font-display text-2xl mb-3" style={{ color: "var(--obsidian)" }}>Cosmic Hora</div>
-            <p className="text-sm" style={{ color: "var(--charcoal)" }}>
-              Ancient Vedic wisdom, crafted anew for the modern seeker.
-            </p>
+            <p className="text-sm" style={{ color: "var(--charcoal)" }}>{t("footer_tagline")}</p>
           </div>
           <div>
-            <div className="eyebrow mb-4">Explore</div>
+            <div className="eyebrow mb-4">{t("footer_explore")}</div>
             <ul className="space-y-2 text-sm" style={{ color: "var(--charcoal)" }}>
-              <li><Link to="/reports">Reports</Link></li>
-              <li><Link to="/pricing">Pricing</Link></li>
-              <li><Link to="/appointment">Book an astrologer</Link></li>
-              <li><Link to="/blog">Journal</Link></li>
+              <li><Link to="/reports">{t("nav_reports")}</Link></li>
+              <li><Link to="/pricing">{t("nav_pricing")}</Link></li>
+              <li><Link to="/appointment">{t("footer_book")}</Link></li>
+              <li><Link to="/blog">{t("nav_journal")}</Link></li>
             </ul>
           </div>
           <div>
-            <div className="eyebrow mb-4">Company</div>
+            <div className="eyebrow mb-4">{t("footer_company")}</div>
             <ul className="space-y-2 text-sm" style={{ color: "var(--charcoal)" }}>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/about">{t("nav_about")}</Link></li>
+              <li><Link to="/services">{t("nav_services")}</Link></li>
+              <li><Link to="/contact">{t("nav_contact")}</Link></li>
               <li><Link to="/faq">FAQ</Link></li>
             </ul>
           </div>
           <div>
-            <div className="eyebrow mb-4">Legal</div>
+            <div className="eyebrow mb-4">{t("footer_legal")}</div>
             <ul className="space-y-2 text-sm" style={{ color: "var(--charcoal)" }}>
               <li><Link to="/privacy">Privacy Policy</Link></li>
               <li><Link to="/terms">Terms &amp; Conditions</Link></li>
@@ -144,8 +184,8 @@ export default function Layout() {
         </div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 text-xs flex flex-col md:flex-row justify-between gap-2"
              style={{ color: "var(--charcoal)", borderTop: "1px solid rgba(58,48,42,0.08)" }}>
-          <span>© {new Date().getFullYear()} Cosmic Hora. All rights reserved.</span>
-          <span>Made with reverence for the sky.</span>
+          <span>© {new Date().getFullYear()} Cosmic Hora. {t("footer_rights")}</span>
+          <span>{t("footer_madewith")}</span>
         </div>
       </footer>
     </div>

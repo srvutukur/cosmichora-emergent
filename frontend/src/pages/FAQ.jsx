@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../lib/api";
+import { useI18n } from "../lib/i18n";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 
 export default function FAQ() {
+  const { t } = useI18n();
   const [faqs, setFaqs] = useState([]);
   useEffect(() => { api.get("/faqs").then((r) => setFaqs(r.data)); }, []);
 
@@ -13,9 +15,9 @@ export default function FAQ() {
 
   return (
     <div data-testid="faq-page" className="max-w-4xl mx-auto px-6 md:px-12 py-20 md:py-28">
-      <div className="eyebrow mb-4">Frequently Asked</div>
+      <div className="eyebrow mb-4">{t("faq_eyebrow")}</div>
       <h1 className="font-display font-light text-5xl md:text-6xl tracking-tighter" style={{ color: "var(--obsidian)" }}>
-        Questions, answered.
+        {t("faq_title")}
       </h1>
 
       <div className="mt-14 space-y-14">

@@ -1,0 +1,76 @@
+{
+  "summary": "Frontend-only i18n verification for COSMIC HORA — tested English/Hindi/Telugu across Home, Reports (15 cards), Birth form, Auth pages, Dashboard, and 7 static pages. All translation flows work correctly with no i18n-related console errors. Backend suite skipped per main agent's instructions (no backend changes this iteration).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "i18n.jsx dictionaries (~586 lines) are large but readable; consider splitting per-locale files (en.js/hi.js/te.js) if more languages get added.",
+    "tReport() in i18n.jsx calls t() twice per field; harmless but a small perf micro-opt available by storing raw once and comparing.",
+    "Legal pages (/privacy /terms /refund), Blog post content, FAQ Q&A, and Admin console intentionally remain English — this is documented as by-design in scope and confirmed working.",
+    "Fallback behavior (missing HI/TE key → EN) verified: no visible English fallback observed on Home/Reports/Birth/Auth/Dashboard/static pages in HI or TE."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100%"},
+  "test_credentials": "Admin: admin@cosmichora.com / Admin@Cosmic2026 (verified working, redirects to /admin)",
+  "seed_data_creation": "Created 1 throwaway registered user (test_i18n_<timestamp>@example.com / TestPass@123) to exercise Dashboard localization.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iteration 1 had 29/29 backend tests passing (see /app/backend/tests/backend_test.py). Iteration 2 is UI-only i18n. LangSwitch data-testids: lang-switch-btn + lang-option-en/hi/te. Login inputs are login-email-input / login-password-input (not login-email). Register: register-name-input, register-email-input, register-password-input, register-submit-btn. Report cards use data-testid='report-card-<slug>'. html[lang] attribute set via useEffect in i18n.jsx. Console shows two 401s on load from /api/auth/me — this is the AuthProvider bootstrapping when no session, unrelated to i18n and expected.",
+  "detailed_verifications": {
+    "home_english": {
+      "html_lang": "en",
+      "hero_headline_'The cosmos,'": true,
+      "hero_line2_'translated'": true,
+      "hero_body_english": true
+    },
+    "language_switcher": {
+      "lang-switch-btn_visible": true,
+      "lang-option-en_visible": true,
+      "lang-option-hi_visible": true,
+      "lang-option-te_visible": true
+    },
+    "home_hindi": {
+      "html_lang": "hi",
+      "hero_'ब्रह्मांड,'": true,
+      "hero_'अनुवादित'": true,
+      "hero_'आपके लिए'": true,
+      "hero_body_hindi": true,
+      "nav_मुख्य_पृष्ठ": true,
+      "nav_रिपोर्ट्स": true,
+      "nav_सेवाएँ": true,
+      "btn_साइन_इन": true,
+      "btn_आरंभ_करें": true,
+      "footer_सर्वाधिकार_सुरक्षित": true,
+      "english_'The cosmos,'_leaked": false
+    },
+    "home_telugu": {
+      "html_lang": "te",
+      "hero_'విశ్వం,'": true,
+      "hero_'అనువదించబడింది'": true,
+      "hero_'మీ కోసం'": true,
+      "nav_హోమ్": true,
+      "nav_నివేదికలు": true,
+      "nav_సేవలు": true,
+      "btn_సైన్_ఇన్": true,
+      "btn_ప్రారంభించండి": true
+    },
+    "persistence_after_reload": {"localStorage.ch_lang": "te", "html_lang": "te", "content_persisted": true},
+    "reports_telugu": {"card_count": 15, "సంపూర్ణ_జాతకం": true, "వివాహ_అనుకూలత": true, "కెరీర్_విశ్లేషణ": true, "ముహూర్తం": true, "page_title_ప్రతి_రకమైన_పఠనం": true},
+    "reports_hindi": {"संपूर्ण_कुंडली": true, "विवाह_अनुकूलता": true, "मुहूर्त": true},
+    "static_pages_hindi": {"/about": true, "/services": true, "/pricing": true, "/contact": true, "/appointment": true, "/faq": true, "/blog": true},
+    "static_pages_telugu": {"/about": true, "/services": true, "/pricing": true, "/contact": true, "/appointment": true, "/faq": true, "/blog": true},
+    "register_telugu": {"title_'మీ ఖాతాను సృష్టించండి'": true, "submit_'ఖాతా సృష్టించండి'": true},
+    "login_hindi": {"title_'पुनः स्वागत है'": true, "btn_साइन_इन": true},
+    "dashboard_hindi_after_register": {"welcome_'स्वागत है, Anaya'": true, "'आपकी रिपोर्ट्स'": true, "empty_state_'आपका पुस्तकालय खाली है'": true},
+    "birth_form_hindi": {"जन्म_विवरण": true, "पूरा_नाम": true, "जन्म_तिथि": true, "भुगतान_पर_जाएँ": true},
+    "admin_login_hindi": {"redirects_to_/admin": true},
+    "console_errors_i18n_related": 0,
+    "console_errors_total": 2,
+    "console_errors_note": "Only two /api/auth/me 401s during AuthProvider bootstrap when no session — unrelated to i18n; expected."
+  }
+}

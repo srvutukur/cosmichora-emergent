@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../lib/auth";
+import { useI18n } from "../lib/i18n";
 import api from "../lib/api";
 import { Download, Clock, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const { t } = useI18n();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,24 +17,24 @@ export default function Dashboard() {
 
   return (
     <div data-testid="dashboard-page" className="max-w-6xl mx-auto px-6 md:px-12 py-20">
-      <div className="eyebrow mb-4">Your Sanctuary</div>
+      <div className="eyebrow mb-4">{t("dash_eyebrow")}</div>
       <h1 className="font-display font-light text-5xl tracking-tighter" style={{ color: "var(--obsidian)" }}>
-        Welcome, {user?.name?.split(" ")[0]}.
+        {t("dash_welcome", { name: user?.name?.split(" ")[0] || "" })}
       </h1>
       <p className="mt-3" style={{ color: "var(--charcoal)" }}>{user?.email}</p>
 
       <div className="mt-14">
         <div className="flex items-baseline justify-between mb-8">
-          <h2 className="font-display text-3xl" style={{ color: "var(--obsidian)" }}>Your reports</h2>
-          <Link to="/reports" className="btn-secondary">Order another</Link>
+          <h2 className="font-display text-3xl" style={{ color: "var(--obsidian)" }}>{t("dash_reports")}</h2>
+          <Link to="/reports" className="btn-secondary">{t("dash_order_another")}</Link>
         </div>
 
-        {loading && <div className="text-sm" style={{ color: "var(--charcoal)" }}>Loading…</div>}
+        {loading && <div className="text-sm" style={{ color: "var(--charcoal)" }}>{t("loading")}</div>}
         {!loading && orders.length === 0 && (
           <div className="card-editorial text-center py-16">
-            <div className="font-display text-3xl mb-3" style={{ color: "var(--obsidian)" }}>Your library is empty</div>
-            <p className="text-sm mb-6" style={{ color: "var(--charcoal)" }}>Begin with any of our 15 report types.</p>
-            <Link to="/reports" data-testid="dashboard-empty-cta" className="btn-primary">Browse reports</Link>
+            <div className="font-display text-3xl mb-3" style={{ color: "var(--obsidian)" }}>{t("dash_empty_title")}</div>
+            <p className="text-sm mb-6" style={{ color: "var(--charcoal)" }}>{t("dash_empty_body")}</p>
+            <Link to="/reports" data-testid="dashboard-empty-cta" className="btn-primary">{t("dash_browse")}</Link>
           </div>
         )}
 
@@ -58,11 +60,11 @@ export default function Dashboard() {
                     target="_blank" rel="noreferrer"
                     className="btn-primary"
                   >
-                    <Download size={14} /> PDF
+                    <Download size={14} /> {t("dash_pdf")}
                   </a>
                 ) : o.status === "pending" ? (
                   <span className="btn-secondary" style={{ cursor: "default" }}>
-                    <Clock size={14} /> Payment pending
+                    <Clock size={14} /> {t("dash_pending")}
                   </span>
                 ) : (
                   <span className="btn-secondary" style={{ cursor: "default" }}>
